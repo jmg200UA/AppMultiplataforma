@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimumscale=1, width=device-width">
+    <!--PARA LOS MAPAS BING-->
+    <script type='text/javascript'
+            src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap'
+            async defer>
+    </script>
+    <!-- Apache Cordova-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <!--JQUERY -->
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!--JQUERY MOBILE -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!--MI SCRIPT-->
+    <script type="text/javascript" src="scripts/index.js"></script>
+    <!--JQUERY, Datatabla -->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+    <script type="text/javascript"
+            src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+
+    <title>Bloque 1</title>
+</head>
+
+<body>
+    <!--PAGINA PRINCIPAL-->
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Página Principal</h1>
+        </div>
+        <p><a href="#two" class="ui-btn ui-shadow ui-corner-all">Municipios España Altitud inferior a 200m</a></p>
+        <p><a href="#three" class="ui-btn ui-shadow ui-corner-all">Estaciones meteorológicas España</a></p>
+        <p><a href="#four" class="ui-btn ui-shadow ui-corner-all" onclick="meteoCV();">Información meteorológica C.Valenciana</a></p>
+        <p><a href="#five" class="ui-btn ui-shadow ui-corner-all" onclick="GetMapp();">Municipios Api Local</a></p>
+        <p><a href="#six" class="ui-btn ui-shadow ui-corner-all">Estaciones Api Local</a></p>
+        <p><a href="#seven" class="ui-btn ui-shadow ui-corner-all" onclick="meteoCV2();">Prediciones Api Local</a></p>
+        <p><a href="#popup" class="ui-btn ui-shadow ui-corner-all" data-rel="dialog" datatransition="pop">Créditos</a></p>
+    </div>
+    <!--PAGINA MUNICIPIOS ESPAÑA ALTITUD INFERIOR A 200M-->
+    <div data-role="page" id="two" data-theme="a">
+        <div data-role="header">
+            <h1>Municipios de España con altitud inferior a 200m</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
+        </div>
+        <p>
+            <a href="#one" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline
+ui-icon-back ui-btn-icon-left">Atrás</a>
+        </p>
+        <div data-role="footer">
+            <h4>Pie de Página</h4>
+        </div>
+    </div>
+    <!--PAGINA ESTACIONES METEOROLOGICAS ESPAÑA-->
+    <div data-role="page" id="three" data-theme="a">
+        <div data-role="header">
+            <h1>Estaciones meteorológicas España</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <table id="dataGrid" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+        <p>
+            <a href="#one" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline
+ui-icon-back ui-btn-icon-left">Atrás</a>
+        </p>
+        <div data-role="footer">
+            <h4>Pie de Página</h4>
+        </div>
+    </div>
+    <!--PAGINA INFORMACION METEOROLOGICA COMUNIDAD VALENCIANA-->
+    <div data-role="page" id="four" data-theme="a">
+        <div data-role="header">
+            <h1>Información meteorológica C.Valenciana</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <div id="myMap2" style="position:relative;width:600px;height:400px;"></div>
+        </div>
+        <p>
+            <a href="#one" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline
+ui-icon-back ui-btn-icon-left">Atrás</a>
+        </p>
+        <div data-role="footer">
+            <h4>Pie de Página</h4>
+        </div>
+    </div>
+    <!--PAGINA MUNICIPIOS API REST LOCAL-->
+    <div data-role="page" id="five" data-theme="a">
+        <!--pagina 2-->
+        <div data-role="header">
+            <h1>Municipios Api Rest local</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <div id="myMapp" style="position:relative;width:600px;height:400px;"></div>
+        </div>
+        <p>
+            <a href="#one" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline
+ui-icon-back ui-btn-icon-left">Atrás</a>
+        </p>
+        <div data-role="footer">
+            <h4>Pie de Página</h4>
+        </div>
+    </div>
+    <!--PAGINA ESTACIONES API REST LOCAL-->
+    <div data-role="page" id="six" data-theme="a">
+        <!--pagina 2-->
+        <div data-role="header">
+            <h1>Estaciones meteorológicas España</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <table id="dataGrid2" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+        <p>
+            <a href="#one" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline
+ui-icon-back ui-btn-icon-left">Atrás</a>
+        </p>
+        <div data-role="footer">
+            <h4>Pie de Página</h4>
+        </div>
+    </div>
+    <!--PAGINA PREDICCIONES API REST LOCAL-->
+    <div data-role="page" id="seven" data-theme="a">
+        <!--pagina 2-->
+        <div data-role="header">
+            <h1>Predicciones Api Rest local</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <div id="myMap3" style="position:relative;width:600px;height:400px;"></div>
+        </div>
+        <p>
+            <a href="#one" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btn-inline
+ui-icon-back ui-btn-icon-left">Atrás</a>
+        </p>
+        <div data-role="footer">
+            <h4>Pie de Página</h4>
+        </div>
+    </div>
+    <!--PAGINA POPUP (CREDITOS)-->
+    <div data-role="page" id="popup">
+        <div data-role="header" data-theme="b">
+            <h1>Créditos</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <p><img src="images/javier-2020-UA.jpg" /></p>
+            <p>Javier Martín Gómez</p>
+            <p>DNI : 74016116T</p>
+            <p>jmg200@alu.ua.es</p>
+            <p><a href="#one" data-rel="back" class="ui-btn ui-shadow ui-corner-all ui-btninline ui-icon-back ui-btn-icon-left">Atrás</a></p>
+        </div>
+        <div data-role="footer">
+            <h4>Pie de Página</h4>
+        </div>
+    </div>
+
+</body>
+</html>
