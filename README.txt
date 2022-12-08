@@ -13,4 +13,4 @@ formas sencilla y con un bajo consumo de recursos.
 La práctica se dividirá en dos bloques, en la primera parte desarrollaremos la aplicación 
 móvil y en la segunda un catálogo de APIs Rest.
 
-Más información en el informe de la práctica y en el vídeo explicativo.
+Más información en el informe de la práctica y en el vídeo explicativo (https://drive.google.com/file/d/1g2AgnsN1mE1UACUN6pmGxBF-J71WNN-z/view?usp=share_link).
